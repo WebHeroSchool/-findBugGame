@@ -109,11 +109,11 @@
 }
 
 .card-wrapper {
- background: url(../img/card.png) no-repeat;
  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
  cursor: pointer;
  height: 341px;
  width: 218px;
+ position: relative;
  transform-style: preserve-3d;
  transition: transform 0.8s;
 }
@@ -124,10 +124,11 @@
  transition: .4s ease;
 }
 
-.cards-backside {
- background: url(../img/card.png) no-repeat;
- height: 341px;
- width: 218px;
+.card-backside {
+  background: url(../img/card.png) no-repeat;
+  backface-visibility: hidden;
+ height: 100%;
+ width: 100%;
  position: absolute;
 }
 
@@ -229,7 +230,7 @@
  }
 
  .card-wrapper,
- .cards-backside,
+ .card-backside,
  .looser-card,
  .winner-card {
   background-size: 175px 271px;
@@ -296,7 +297,7 @@
  }
 
  .card-wrapper,
- .cards-backside,
+ .card-backside,
  .looser-card,
  .winner-card {
   background-size: 146px 232px;
@@ -359,7 +360,7 @@
  }
 
  .card-wrapper,
- .cards-backside,
+ .card-backside,
  .looser-card,
  .winner-card {
   background-size: 86px 142px;
@@ -430,7 +431,7 @@
  }
 
  .card-wrapper,
- .cards-backside,
+ .card-backside,
  .looser-card,
  .winner-card {
   background-size: 64px 102px;
@@ -501,7 +502,7 @@
  }
 
  .card-wrapper,
- .cards-backside,
+ .card-backside,
  .looser-card,
  .winner-card {
   background-size: 64px 102px;
