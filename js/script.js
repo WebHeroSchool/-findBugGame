@@ -1,12 +1,14 @@
-let body = document.body;
-let startGameButton = document.getElementById('button');
+const body = document.body;
+const getById = id => document.getElementById(id);
+const startGameButton = getById('button');
 
-let difficultyLabels = [];
-difficultyLabels[0] = document.getElementById('label-simple');
-difficultyLabels[1] = document.getElementById('label-average');
-difficultyLabels[2] = document.getElementById('label-difficult');
+const difficultyLabels = [
+  getById('label-simple'),
+  getById('label-average'),
+  getById('label-difficult'),
+];
 
-let difficultyMap = {
+const difficultyMap = {
   'Простой': {
     'class':'three-card-field',
     'cardCount': 3,
@@ -23,7 +25,7 @@ let difficultyMap = {
   },
 };
 
-let difficulty = document.getElementById('simple').value;
+let difficulty = getById('simple').value;
 let cardWasClicked = false;
 
 difficultyLabels.forEach(difficultyButton => {
@@ -34,37 +36,37 @@ difficultyLabels.forEach(difficultyButton => {
   };
 });
 
-let createCards = (number, field) => {
+const createCards = (number, field) => {
   let randomCard = Math.floor(Math.random() * number);
   for (let i = 0; i < number; i++) {
-    let cardWrapper = document.createElement('div');
-    let cardBackside = document.createElement('div');
-    let winnerCard = document.createElement('div');
-    let looserCard = document.createElement('div');
-  if (i === randomCard) {
-    cardWrapper.className = 'card-wrapper';
-    cardWrapper.classList.add('card-wrapper_hover');
-    field.append(cardWrapper);
-    cardBackside.className ='card-backside';
-    cardWrapper.append(cardBackside);
-    winnerCard.className = 'winner-card';
-    cardWrapper.append(winnerCard);
-  } else {
-    cardWrapper.className = 'card-wrapper';
-    cardWrapper.classList.add('card-wrapper_hover');
-    field.append(cardWrapper);
-    cardBackside.className ='card-backside';
-    cardWrapper.append(cardBackside);
-    looserCard.className = 'looser-card';
-    cardWrapper.append(looserCard);
+    const cardWrapper = document.createElement('div');
+    const cardBackside = document.createElement('div');
+    const winnerCard = document.createElement('div');
+    const looserCard = document.createElement('div');
+    if (i === randomCard) {
+      cardWrapper.className = 'card-wrapper';
+      cardWrapper.classList.add('card-wrapper_hover');
+      field.append(cardWrapper);
+      cardBackside.className ='card-backside';
+      cardWrapper.append(cardBackside);
+      winnerCard.className = 'winner-card';
+      cardWrapper.append(winnerCard);
+    } else {
+      cardWrapper.className = 'card-wrapper';
+      cardWrapper.classList.add('card-wrapper_hover');
+      field.append(cardWrapper);
+      cardBackside.className ='card-backside';
+      cardWrapper.append(cardBackside);
+      looserCard.className = 'looser-card';
+      cardWrapper.append(looserCard);
     };
   };
 };
 
 startGameButton.addEventListener('click', () => {
-  let levelMenu = document.getElementById('level-menu');
-  let levelParams = difficultyMap[difficulty];
-  let cardsField = document.createElement('div');
+  const levelMenu = getById('level-menu');
+  const levelParams = difficultyMap[difficulty];
+  const cardsField = document.createElement('div');
   cardsField.className = levelParams['class'];
   body.append(cardsField);
 
