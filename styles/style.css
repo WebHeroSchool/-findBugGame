@@ -125,11 +125,12 @@
 }
 
 .card-backside {
-  background: url(../img/card.png) no-repeat;
-  backface-visibility: hidden;
+ background: url(../img/card.png) no-repeat;
+ backface-visibility: hidden;
  height: 100%;
  width: 100%;
  position: absolute;
+ -webkit-backface-visibility: hidden;
 }
 
 .looser-card {
@@ -139,6 +140,7 @@
  width: 218px;
  position:absolute;
  transform: rotateY(180deg);
+ -webkit-backface-visibility: hidden;
 }
 
 .winner-card {
@@ -148,6 +150,7 @@
  width: 218px;
  position:absolute;
  transform: rotateY(180deg);
+ -webkit-backface-visibility: hidden;
 }
 
 .card-click {
